@@ -108,30 +108,6 @@ document.getElementById('historical-data-form').addEventListener('submit', async
   }
 });
 
-// Currency Converter Functions
-function populateForm() {
-  let toCurrency = document.getElementById('toCurrency');
-  let fromCurrency = document.getElementById('fromCurrency');
-
-  fetch("https://api.frankfurter.app/currencies")
-    .then(resp => resp.json())
-    .then((resp) => {
-      console.log(resp);
-
-      for (const [key, value] of Object.entries(resp)) {
-        const optionFrom = document.createElement('option');
-        const optionTo = document.createElement('option');
-
-        optionFrom.value = key;
-        optionFrom.innerHTML = value;
-        optionTo.value = key;
-        optionTo.innerHTML = value;
-
-        toCurrency.appendChild(optionTo);
-        fromCurrency.appendChild(optionFrom);
-      }
-    });
-}
 
 // Populate the currency dropdowns using ExchangeRate-API
 function populateForm() {
